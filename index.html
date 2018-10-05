@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Austins Bootstrap Site</title>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <!--Boot Strap Baby!!!!-->
+
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+
+</head>
+
+<body>
+
+
+    <header>
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-12 name">
+                    <h1>Hangman Villian Edition!!!!</h1>
+                </div>
+
+            </div>
+            <!--row-->
+        </div>
+        <!--container-->
+    </header>
+
+    <br>
+    <br>
+
+
+    <div class="container">
+
+        <div class="row maincontent">
+
+            <h2 align="center">Play Hangman With Me!!!!! Muahahahahahahahahahaha!!!!!</h2>
+
+            <div class="col-12 about">
+                <h2>Pick Any Letter to Start</h2>
+
+                <div class="row">
+
+                    <div class="col-6 justify-content-right">
+                        <img src="assets\images\joker.png" alt="Zoltar" height=400 width=400>
+
+                    </div>
+
+                    <div class="col-6">
+
+                        <p id="userwins" class="txt">Wins:</p>
+                        <p id="currentword">Current Word:</p>
+                        <p id="guessesleft">Guesses Left:</p>
+                        <p id="guesses">Your Guesses So Far</p>
+
+                    </div>
+
+
+                </div>
+            </div>
+            <!--about-->
+
+        </div>
+        <!--End Of Row 1-->
+
+    </div>
+    <!--container-->
+
+
+    <footer>
+
+        <p align="center">Copyright</p>
+
+    </footer>
+
+    <script>
+
+        var wins = 0;
+
+        var wordBank = [
+            "joker",
+            "bane",
+            "mysterio",
+            "thanos",
+            "magneto"
+        ];
+
+        var word = wordBank[Math.floor(Math.random() * wordBank.length)];
+
+        var userWinsText = document.getElementById("userwins");
+        var userLossesText = document.getElementById("currentword");
+        var guessesLeftText = document.getElementById("guessesleft");
+        var guessesText = document.getElementById("guesses");
+
+
+        var answers = [];
+        for (var i = 0; i < word.length; i++) {
+            answers[i] = "_";
+        }
+
+        var lettersLeft = word.length;
+
+        while (lettersLeft > 0) {
+            prompt(answers.join(" "));
+            var guess = prompt("Guess A Letter!! Cancel to Stop Playing");
+            if (guess === null) {
+                break;
+            } else if (guess.length !== 1) {
+                alert("Please Choose 1 Letter");
+            } else {
+                for (var j = 0; j < word.length; j++) {
+                    if (word[j] === guess) {
+                        answers[j] = guess;
+                        lettersLeft--;
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

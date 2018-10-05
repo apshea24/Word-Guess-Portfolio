@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <header></header>
+    
+
+    <div id="wins"></div>
+    <div id="currentword"></div>
+
+<hr>
+
+<div id="guessesremaining"></div>
+<div id="lettersguessed"></div>
+
+
+    <script>
+    
+    var wordBank = [
+        "joker",
+        "bane",
+        "mysterio",
+        "thanos",
+        "magneto"
+    ];
+    
+    var word = wordBank[Math.floor(Math.random() * wordBank.length)];
+
+    var answers = [];
+    for (var i = 0; i < word.length; i++) {
+        answers[i] = "_";
+    }
+
+    var lettersLeft = word.length;
+
+    while (lettersLeft > 0) {
+        alert(answers.join(" "));
+        var guess = prompt("Guess A Letter!! Cancel to Stop Playing");
+        if (guess === null) {
+            break;
+        } else if (guess.length !== 1) {
+            alert("Please Choose 1 Letter");
+        } else {
+            for (var j = 0; j < word.length; j++) {
+                if (word[j] === guess) {
+                    answers[j] = guess;
+                    lettersLeft--;
+                }
+            }
+        }
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>
